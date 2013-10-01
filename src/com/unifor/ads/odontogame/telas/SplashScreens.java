@@ -27,12 +27,11 @@ public class SplashScreens extends Activity {
 		new Timer().schedule(new TimerTask() {
         	 
             @Override
-            public void run() {
+            public void run() { 
                 finish();
- 
                 Intent intent = new Intent();
-                //intent.setClass(this, Activity.class);
-                //startActivity(intent);
+                intent.setClass(SplashScreens.this, MenuActivity.class);
+                startActivity(intent);
             }
         }, 4000);
 	}

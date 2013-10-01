@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/menu_botao_jogar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/menu_botao_tutorial"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:text="Jogar" />
+
+    <Button
+        android:id="@+id/menu_botao_sair"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/menu_botao_jogar"
+        android:layout_below="@+id/menu_botao_tutorial"
+        android:layout_marginTop="15dp"
+        android:text="Sair" />
+
+    <Button
+        android:id="@+id/menu_botao_estatistica"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/menu_botao_jogar"
+        android:layout_below="@+id/menu_botao_jogar"
+        android:text="Estatistica" />
+
+    <Button
+        android:id="@+id/menu_botao_tutorial"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/menu_botao_jogar"
+        android:layout_centerVertical="true"
+        android:text="Tutorial" />
+
+    <ImageView
+        android:id="@+id/menu_imagem_icone"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/ic_launcher" />
+
+</RelativeLayout>

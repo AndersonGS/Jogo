@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".telas.SplashScreens"></activity>
+        <activity android:name=".telas.MenuActivity"></activity>
     </application>
 
 </manifest>
