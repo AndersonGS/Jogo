@@ -1,7 +1,5 @@
 package com.unifor.ads.odontogame.telas;
 
-import java.util.ArrayList;
-
 import com.unifor.ads.odontogame.R;
 import com.unifor.ads.odontogame.controle.GerenciarApp;
 
@@ -9,6 +7,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -16,14 +15,19 @@ import android.widget.Button;
 public class MenuActivity extends Activity {
 
 	private static final String TAG_LOG = "MenuActivity";
+
 	private GerenciarApp gApp;
+	private GestureDetector detector;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.menu_main);
 		adicionarAcaoBotao();
-		//gApp = new GerenciarApp(MenuActivity.this);
+
+		// gApp = new GerenciarApp(MenuActivity.this);
+		detector = new GestureDetector(this, new DetectorGestos());
+
 		Log.i(TAG_LOG, "onCreate");
 	}
 
@@ -55,29 +59,12 @@ public class MenuActivity extends Activity {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-
-		int action = MotionEventCompat.getActionMasked(event);
-
-		switch (action) {
-		case (MotionEvent.ACTION_DOWN):
-			Log.d(TAG_LOG, "Action was DOWN");
-			return true;
-		case (MotionEvent.ACTION_MOVE):
-			Log.d(TAG_LOG, "Action was MOVE");
-			return true;
-		case (MotionEvent.ACTION_UP):
-			Log.d(TAG_LOG, "Action was UP");
-			return true;
-		case (MotionEvent.ACTION_CANCEL):
-			Log.d(TAG_LOG, "Action was CANCEL");
-			return true;
-		case (MotionEvent.ACTION_OUTSIDE):
-			Log.d(TAG_LOG, "Movement occurred outside bounds "
-					+ "of current screen element");
-			return true;
-		default:
-			return super.onTouchEvent(event);
+		boolean tratouEvento = detector.onTouchEvent(event);	
+		if(tratouEvento){
+			return tratouEvento;
 		}
+		return super.onTouchEvent(event);
+
 	}
 
 }
