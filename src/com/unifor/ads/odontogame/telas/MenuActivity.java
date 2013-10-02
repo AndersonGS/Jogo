@@ -2,6 +2,7 @@ package com.unifor.ads.odontogame.telas;
 
 import com.unifor.ads.odontogame.R;
 import com.unifor.ads.odontogame.controle.GerenciarApp;
+import com.unifor.ads.odontogame.telas.jogo.PerguntaActivity;
 
 import android.app.Activity;
 import android.content.Intent;

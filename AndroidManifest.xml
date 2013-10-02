@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
             android:name="com.unifor.ads.odontogame.telas.MainActivity"
             android:label="@string/app_name" >
@@ -24,7 +24,8 @@
         </activity>
         <activity android:name=".telas.SplashScreens"></activity>
         <activity android:name=".telas.MenuActivity"></activity>
-        <activity android:name=".telas.PerguntaActivity"></activity>
+        <activity android:name="com.unifor.ads.odontogame.telas.jogo.PerguntaActivity"></activity>
+        <activity android:name=".telas.CadastroActivity"></activity>
     </application>
 
 </manifest>

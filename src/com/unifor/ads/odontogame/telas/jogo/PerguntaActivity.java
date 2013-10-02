@@ -1,4 +1,4 @@
-package com.unifor.ads.odontogame.telas;
+package com.unifor.ads.odontogame.telas.jogo;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

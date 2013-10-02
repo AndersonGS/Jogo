@@ -1,4 +1,4 @@
-package com.unifor.ads.odontogame.telas;
+package com.unifor.ads.odontogame.telas.jogo;
 
 import com.unifor.ads.odontogame.R;
 

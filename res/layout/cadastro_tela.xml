@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/cadastro_icone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_launcher" />
+
+    <EditText
+        android:id="@+id/cadastro_edittext_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cadastro_icone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:text="Nome" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/cadastro_edittext_senha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cadastro_edittext_nome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="Senha" />
+
+    <Button
+        android:id="@+id/cadastro_botao_loguim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cadastro_edittext_nome"
+        android:layout_alignRight="@+id/cadastro_edittext_nome"
+        android:layout_below="@+id/cadastro_edittext_senha"
+        android:layout_marginTop="10dp"
+        android:text="Loguim" />
+
+    <Button
+        android:id="@+id/cadastro_botao_cadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cadastro_botao_loguim"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/cadastro_botao_loguim"
+        android:layout_marginBottom="10dp"
+        android:text="Cadastrar" />
+
+    <Button
+        android:id="@+id/cadastro_botao_facebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cadastro_botao_cadastrar"
+        android:layout_alignLeft="@+id/cadastro_botao_cadastrar"
+        android:layout_alignRight="@+id/cadastro_botao_cadastrar"
+        android:layout_marginBottom="10dp"
+        android:text="Loguim Facebook" />
+
+</RelativeLayout>

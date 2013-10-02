@@ -30,7 +30,7 @@ public class SplashScreens extends Activity  {
             public void run() { 
                 finish();
                 Intent intent = new Intent();
-                intent.setClass(SplashScreens.this, MenuActivity.class);
+                intent.setClass(SplashScreens.this, CadastroActivity.class);
                 startActivity(intent);
             }
         }, 4000);
