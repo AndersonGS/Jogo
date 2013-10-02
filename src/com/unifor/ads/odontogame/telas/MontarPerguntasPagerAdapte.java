@@ -6,6 +6,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.Log;
 
+/**
+ * Esta é uma Class com nome MontarPerguntasPagerAdapte, criada
+ * dia 02/10/2013 as 14:45:59, no projeto Jogo e dentro do pacote
+ * com.unifor.ads.odontogame.telas. Usando a verção da JRE 1.7.0_21 e a API 18
+ * no android 4.2. O objetivo dessa classe é gerenciar a tela de swipe.
+ * 
+ * @author Anderson Graciano S.
+ * @version 1.0.
+ */
 public class MontarPerguntasPagerAdapte extends FragmentStatePagerAdapter {
 
 	/**
@@ -43,7 +52,7 @@ public class MontarPerguntasPagerAdapte extends FragmentStatePagerAdapter {
 			fragment.setArguments(args);
 			break;
 		default:
-			
+
 			break;
 		}
 		Log.i(TAG_LOG, "getItem:" + i);

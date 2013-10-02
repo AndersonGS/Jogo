@@ -9,7 +9,7 @@ import android.util.Log;
 /**
  * Esta é uma Class com nome Banco, criada dia 27/09/2013 as 20:52:25, no
  * projeto DentinhoFeliz e dentro do pacote com.ags.dentinhofeliz. Usando a
- * verção da JRE 1.7.0_21 e a API 18 no android 4.3. O objetivo dessa classe é
+ * verção da JRE 1.7.0_21 e a API 18 no android 4.2. O objetivo dessa classe é
  * oferecer os metodos mapara manipular o banco de dados.
  * 
  * @author Anderson Graciano S.
