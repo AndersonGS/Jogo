@@ -1,13 +1,11 @@
 package com.unifor.ads.odontogame.telas;
 
-import com.unifor.ads.odontogame.R;
-import com.unifor.ads.odontogame.R.layout;
-import com.unifor.ads.odontogame.R.menu;
-
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
+
+import com.unifor.ads.odontogame.R;
 
 public class MainActivity extends Activity {
 

@@ -3,4 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pagina"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" >
+    </android.support.v4.view.ViewPager>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="36dp"
+        android:src="@drawable/quiz" />
+
 </RelativeLayout>

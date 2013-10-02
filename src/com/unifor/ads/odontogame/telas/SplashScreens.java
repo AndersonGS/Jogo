@@ -9,7 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class SplashScreens extends Activity {
+public class SplashScreens extends Activity  {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

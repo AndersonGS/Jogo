@@ -24,6 +24,7 @@
         </activity>
         <activity android:name=".telas.SplashScreens"></activity>
         <activity android:name=".telas.MenuActivity"></activity>
+        <activity android:name=".telas.PerguntaActivity"></activity>
     </application>
 
 </manifest>

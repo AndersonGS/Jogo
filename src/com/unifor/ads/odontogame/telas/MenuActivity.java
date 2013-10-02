@@ -4,20 +4,22 @@ import com.unifor.ads.odontogame.R;
 import com.unifor.ads.odontogame.controle.GerenciarApp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
 public class MenuActivity extends Activity {
-
+	
+	/**
+	 * A constante TAG_LOG do tipo String foi declarada. O objetivo dessa
+	 * variavel abstrata é determina um titulo para o Log informativo desta
+	 * classe.
+	 */
 	private static final String TAG_LOG = "MenuActivity";
 
 	private GerenciarApp gApp;
-	private GestureDetector detector;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,7 @@ public class MenuActivity extends Activity {
 		setContentView(R.layout.menu_main);
 		adicionarAcaoBotao();
 
-		// gApp = new GerenciarApp(MenuActivity.this);
-		detector = new GestureDetector(this, new DetectorGestos());
+		//gApp = new GerenciarApp(MenuActivity.this);
 
 		Log.i(TAG_LOG, "onCreate");
 	}
@@ -50,21 +51,13 @@ public class MenuActivity extends Activity {
 		bJogar.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				Intent intent = new Intent();
+				intent.setClass(MenuActivity.this, PerguntaActivity.class);
+				startActivity(intent);
 				Log.i(TAG_LOG, "onClickbotaoJogar");
 			}
 		});
 		Log.i(TAG_LOG, "botaoJogar");
-	}
-
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		boolean tratouEvento = detector.onTouchEvent(event);	
-		if(tratouEvento){
-			return tratouEvento;
-		}
-		return super.onTouchEvent(event);
-
 	}
 
 }
