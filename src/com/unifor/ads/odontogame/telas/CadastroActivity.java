@@ -27,47 +27,73 @@ public class CadastroActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cadastro_tela);
+
 		adicionarAcaoBotao();
 		
 		butaoFacebook();
 		
+		verificarSessionFacebook(savedInstanceState);
 
 		Log.i(TAG_LOG, "onCreate");
 	}
 
+    private Session.StatusCallback statusCallback = new SessionStatusCallback();
+    
+	private void verificarSessionFacebook(Bundle savedInstanceState) {
+		Settings.addLoggingBehavior(LoggingBehavior.INCLUDE_ACCESS_TOKENS);
+
+        Session session = Session.getActiveSession();
+        if (session == null) {
+            if (savedInstanceState != null) {
+                session = Session.restoreSession(this, null, statusCallback, savedInstanceState);
+            }
+            if (session == null) {
+                session = new Session(this);
+            }
+            Session.setActiveSession(session);
+            if (session.getState().equals(SessionState.CREATED_TOKEN_LOADED)) {
+                session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
+            }
+        }
+        updateView();
+	}
+	
+    private void updateView() {
+        Session session = Session.getActiveSession();
+        if (session.isOpened()) {
+        	bFacebooc.setText("Facebook Logout");
+        	bFacebooc.setOnClickListener(new OnClickListener() {
+                public void onClick(View view) { onClickLogout(); }
+            });
+        } else {
+        	bFacebooc.setText("Facebook Login");
+            bFacebooc.setOnClickListener(new OnClickListener() {
+                public void onClick(View view) { onClickLogin(); }
+            });
+        }
+    }
+    
+    private void onClickLogin() {
+        Session session = Session.getActiveSession();
+        if (!session.isOpened() && !session.isClosed()) {
+            session.openForRead(new Session.OpenRequest(this).setCallback(statusCallback));
+        } else {
+            Session.openActiveSession(this, true, statusCallback);
+        }
+    }
+
+    private void onClickLogout() {
+        Session session = Session.getActiveSession();
+        if (!session.isClosed()) {
+            session.closeAndClearTokenInformation();
+        }
+    }
+
 	private void butaoFacebook() {
 		bFacebooc = (Button) findViewById(R.id.cadastro_botao_facebook);
-		bFacebooc.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				facebooK();
-			}
-		});
+		Log.i(TAG_LOG, "adicionarAcaoBotao");
 	}
 
-	private void facebooK() {
-		Session.openActiveSession(this, true, new Session.StatusCallback() {
-
-		      // callback when session changes state
-		      @Override
-		      public void call(Session session, SessionState state, Exception exception) {
-		        if (session.isOpened()) {
-
-		          // make request to the /me API
-		          Request.executeMeRequestAsync(session, new Request.GraphUserCallback() {
-
-		            // callback after Graph API response with user object
-		            @Override
-		            public void onCompleted(GraphUser user, Response response) {
-		              if (user != null) {
-		          		Log.i(TAG_LOG, "Hello " + user.getName() + "!");
-		              }
-		            }
-		          });
-		        }
-		      }
-		    });
-	}
    
 	/**
 	 * O metodo Adicionar acao botao da classe MenuActivity, é uma metodo void
@@ -75,6 +101,7 @@ public class CadastroActivity extends Activity {
 	 */
 	private void adicionarAcaoBotao() {
 		botaoLoguim();
+		butaoFacebook();
 		Log.i(TAG_LOG, "adicionarAcaoBotao");
 	}
 
@@ -99,4 +126,10 @@ public class CadastroActivity extends Activity {
 	  Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
 	}
 	
+    private class SessionStatusCallback implements Session.StatusCallback {
+        @Override
+        public void call(Session session, SessionState state, Exception exception) {
+            updateView();
+        }
+    }
 }
