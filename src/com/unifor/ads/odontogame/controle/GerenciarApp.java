@@ -10,6 +10,6 @@ public class GerenciarApp {
 	}
 
 	private void iniciarJogo() {
-		//nada
+		
 	}
 }

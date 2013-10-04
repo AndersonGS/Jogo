@@ -33,7 +33,7 @@ public class SplashScreens extends Activity  {
                 intent.setClass(SplashScreens.this, CadastroActivity.class);
                 startActivity(intent);
             }
-        }, 4000);
+        }, 2000);
 	}
 	
 }
